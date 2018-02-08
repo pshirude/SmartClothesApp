@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Apparels
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="funnel"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page3">
+  <form id="apparels-form2">
+    <ion-searchbar placeholder="" name="" id="apparels-search1"></ion-searchbar>
+  </form>
+  <div class="spacer" style="width:300px;height:0px;" id="apparels-spacer4"></div>
+  <ion-list id="apparels-list2">
+    <ion-item-sliding>
+      <ion-item color="none" on-click="goToApparelName()" id="apparels-list-item19">
+        <ion-thumbnail item-left>
+          <img src="assets/img/36Iv2fTkR9qI6BtuwV8o_11477031827417-Nike-Charcoal-Grey-Jacket-8441477031827145-1.jpg" />
+        </ion-thumbnail>
+        <h2>
+          {{Item.name}}
+        </h2>
+      </ion-item>
+      <ion-item-options side="left">
+        <button ion-button color="assertive">
+          Remove
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+    <ion-item color="none" id="apparels-list-item20">
+      <ion-thumbnail item-left>
+        <img />
+      </ion-thumbnail>
+      <h2>
+        Item
+      </h2>
+    </ion-item>
+    <ion-item color="none" id="apparels-list-item18">
+      <ion-thumbnail item-left>
+        <img />
+      </ion-thumbnail>
+      <h2>
+        Item
+      </h2>
+    </ion-item>
+  </ion-list>
+</ion-content>

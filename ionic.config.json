@@ -1,0 +1,8 @@
+{
+  "name": "smartClothesApp",
+  "app_id": "17956f97",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
