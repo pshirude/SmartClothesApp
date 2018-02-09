@@ -4,7 +4,7 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      Apparels
+      My Apparels
     </ion-title>
     <ion-buttons end>
       <button ion-button icon-only>
@@ -15,40 +15,33 @@
 </ion-header>
 <ion-content padding id="page3">
   <form id="apparels-form2">
-    <ion-searchbar placeholder="" name="" id="apparels-search1"></ion-searchbar>
+    <ion-searchbar placeholder="Type any word to search a cloth" name="" id="apparels-search1" (ionInput)="searchCloth($event)"></ion-searchbar>
   </form>
-  <div class="spacer" style="width:300px;height:0px;" id="apparels-spacer4"></div>
-  <ion-list id="apparels-list2">
-    <ion-item-sliding>
-      <ion-item color="none" on-click="goToApparelName()" id="apparels-list-item19">
-        <ion-thumbnail item-left>
-          <img src="assets/img/36Iv2fTkR9qI6BtuwV8o_11477031827417-Nike-Charcoal-Grey-Jacket-8441477031827145-1.jpg" />
-        </ion-thumbnail>
-        <h2>
-          {{Item.name}}
-        </h2>
-      </ion-item>
-      <ion-item-options side="left">
-        <button ion-button color="assertive">
-          Remove
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-    <ion-item color="none" id="apparels-list-item20">
-      <ion-thumbnail item-left>
-        <img />
-      </ion-thumbnail>
-      <h2>
-        Item
-      </h2>
-    </ion-item>
-    <ion-item color="none" id="apparels-list-item18">
-      <ion-thumbnail item-left>
-        <img />
-      </ion-thumbnail>
-      <h2>
-        Item
-      </h2>
-    </ion-item>
+
+  <div class="spacer" style="width:300px;height:0px;" id="apparels"></div>
+  
+  <ion-list *ngFor="let category of clothCategory" id="apparelsList">
+	<ion-list-header >{{ category }}</ion-list-header>
+	    <ion-item-sliding class="shaded-slider" *ngFor="let cloth of clothesJSON[category]"> 
+			<ion-item>
+				<ion-thumbnail item-left>
+					<img src="assets/img/{{cloth.image}}"/>
+				</ion-thumbnail>
+				<b>{{ cloth.name }}</b><br> {{ cloth.brand }}<br> {{ cloth.size }}<br> {{ cloth.color }}
+				<br>
+				<button id="apparelName-button3" ion-button clear color="dark" on-click="markFav()">
+					<ion-icon name="heart-outline"></ion-icon>
+				</button>
+				<button ion-button icon-only>
+					<ion-icon name="analytics"></ion-icon>
+				</button>
+			</ion-item>
+			<ion-item-options side="right">
+				<button ion-button color="assertive">
+				  Remove
+				</button>
+		  </ion-item-options>
+		</ion-item-sliding>
   </ion-list>
+
 </ion-content>

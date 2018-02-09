@@ -50,10 +50,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     NotificationsPage
   ],
   providers: [
-    StatusBar,
-	BarcodeScanner,
+    StatusBar,BarcodeScanner,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+	
   ]
 })
 export class AppModule {}
