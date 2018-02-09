@@ -19,7 +19,7 @@
   </form>
 
   <div class="spacer" style="width:300px;height:0px;" id="apparels"></div>
-  
+ 
   <ion-list *ngFor="let category of clothCategory" id="apparelsList">
 	<ion-list-header >{{ category }}</ion-list-header>
 	    <ion-item-sliding class="shaded-slider" *ngFor="let cloth of clothesJSON[category]"> 
@@ -29,7 +29,7 @@
 				</ion-thumbnail>
 				<b>{{ cloth.name }}</b><br> {{ cloth.brand }}<br> {{ cloth.size }}<br> {{ cloth.color }}
 				<br>
-				<button id="apparelName-button3" ion-button clear color="dark" on-click="markFav()">
+				<button id="apparelName-button3" ion-button clear color="dark" on-click="markFav(cloth)">
 					<ion-icon name="heart-outline"></ion-icon>
 				</button>
 				<button ion-button icon-only>

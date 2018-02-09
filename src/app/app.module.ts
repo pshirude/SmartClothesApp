@@ -18,6 +18,9 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { MyServiceService } from '../services/my-service.service';
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -50,7 +53,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     NotificationsPage
   ],
   providers: [
-    StatusBar,BarcodeScanner,
+    StatusBar,BarcodeScanner,MyServiceService,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
 	

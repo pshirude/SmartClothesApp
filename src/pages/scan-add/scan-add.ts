@@ -15,9 +15,9 @@ export class ScanAddPage {
   }
   
   scanCode() {
-	alert('inside scancode');
 	this.barcodeScanner.scan().then(barcodeData => {
 		this.scannedCode = barcodeData.text;
+		
 	}, (err) => {
 		console.log('Error: ', err);
 	});

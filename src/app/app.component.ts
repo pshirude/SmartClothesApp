@@ -12,6 +12,7 @@ import { NotificationsPage } from '../pages/notifications/notifications';
 
 
 import { ScanAddPage } from '../pages/scan-add/scan-add';
+import { MyServiceService } from '../services/my-service.service';
 
 
 
