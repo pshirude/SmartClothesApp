@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { ApparelNamePage } from '../apparel-name/apparel-name';
 import { MyServiceService } from '../../services/my-service.service';
+import { RestProvider } from '../../providers/rest/rest';
 
 @Component({
   selector: 'page-apparels',
@@ -9,10 +8,12 @@ import { MyServiceService } from '../../services/my-service.service';
 })
 export class ApparelsPage implements OnInit {
 
-  clothCategory : any;
-  clothesJSON : any;
-  favouriteClothes : any[] = [];
+   clothCategory : any;
+   clothesJSON : any;
+   users : any;
+   favouriteClothes : any[] = [];
   
+   
 	initializeItems() {
 		this.clothesJSON = {
 		"Formal Wear": [{
@@ -54,32 +55,27 @@ export class ApparelsPage implements OnInit {
 		]};
 	}
 	
-	constructor(private myService:MyServiceService) { }
+	constructor(public restProvider: RestProvider , public myService : MyServiceService) { 
+		this.getUsers();
+	}
+	
+	getUsers()
+	{
+		this.restProvider.getUsers()
+		.then(data => {
+			this.users = data;
+			console.log(this.users);
+		});
+	}
 	
 	ngOnInit()
 	{
 		this.initializeItems();
 		this.clothCategory = Object.keys(this.clothesJSON);
 	}
-	
-	loadApparelDetails(params){
-		if (!params) params = {};
-		this.navCtrl.push(ApparelNamePage);
-	}
 
-	markFav(cloth){
-		this.favouriteClothes.push[cloth];
-		alert('calling service method');
-		this.myService.markFavorite(cloth);
-	}
+	/* markFav(cloth){
+		this.myService.favouriteClothes.push[cloth];
+	} */
 
-	/* searchCloth(ev: any) {
-
-		alert('inside getItems');
-		// this.initializeItems();
-		// set val to the value of the searchbar
-		let val = ev.target.value;
-
-		// JSON.search(this.clothesJSON,'//*[contains(.,val)]');
-	}*/
 }

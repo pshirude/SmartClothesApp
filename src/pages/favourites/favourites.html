@@ -27,9 +27,9 @@
     </ion-item>
   </ion-list> -->
      <h2> today's date from service :: </h2>  {{todaysDate}}
-   <ion-list *ngFor="let category of clothCategory" id="apparelsList">
-	<ion-list-header >{{ category }}</ion-list-header>
-	    <ion-item-sliding class="shaded-slider" *ngFor="let cloth of clothesJSON[category]"> 
+   <ion-list>
+	<ion-list-header >Favorite Clothes</ion-list-header>
+	    <ion-item-sliding class="shaded-slider" *ngFor="let cloth of favoriteClothes"> 
 			<ion-item>
 				<ion-thumbnail item-left>
 					<img src="assets/img/{{cloth.image}}"/>
@@ -43,11 +43,6 @@
 					<ion-icon name="analytics"></ion-icon>
 				</button>
 			</ion-item>
-			<ion-item-options side="right">
-				<button ion-button color="assertive">
-				  Remove
-				</button>
-		  </ion-item-options>
 		</ion-item-sliding>
   </ion-list>
   
