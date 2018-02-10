@@ -8,10 +8,9 @@ import { MyServiceService } from '../../services/my-service.service';
 
 export class FavouritesPage implements OnInit {
 
-  favoriteClothes : any[]=[];
-  
+  favoriteClothes : any[] = [];
   constructor(private myService:MyServiceService) {
-	getFav();
+	this.getFav();
   }
   
   ngOnInit() {

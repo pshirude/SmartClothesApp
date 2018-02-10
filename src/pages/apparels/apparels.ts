@@ -74,8 +74,10 @@ export class ApparelsPage implements OnInit {
 		this.clothCategory = Object.keys(this.clothesJSON);
 	}
 
-	/* markFav(cloth){
-		this.myService.favouriteClothes.push[cloth];
-	} */
+	markFav(cloth){
+		this.myService.favouriteClothes.push({
+			"cloth":cloth
+		});
+	}
 
 }

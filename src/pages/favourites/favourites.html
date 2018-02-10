@@ -27,7 +27,7 @@
     </ion-item>
   </ion-list> -->
      <h2> today's date from service :: </h2>  {{todaysDate}}
-   <ion-list>
+  <!-- <ion-list>
 	<ion-list-header >Favorite Clothes</ion-list-header>
 	    <ion-item-sliding class="shaded-slider" *ngFor="let cloth of favoriteClothes"> 
 			<ion-item>
@@ -44,6 +44,8 @@
 				</button>
 			</ion-item>
 		</ion-item-sliding>
+  </ion-list> -->
+  <ion-list *ngFor="let cloth of favoriteClothes">
+		<h4><I>{{cloth}}</I></h4>
   </ion-list>
-  
 </ion-content>
