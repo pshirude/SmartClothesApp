@@ -4,7 +4,7 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      Stats
+      Cloth Usage Statistics
     </ion-title>
     <ion-buttons end>
       <button ion-button icon-only>
@@ -13,4 +13,36 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page5"></ion-content>
+<ion-content padding id="page5">
+
+	<ion-card padding>
+	<div> <h2> <b>Category-wise Usage</b> </h2>
+	  <div style="display: block">
+		<canvas baseChart height="50" width="100"
+				[datasets]="barChartData"
+				[labels]="barChartLabels"
+				[options]="barChartOptions"
+				[legend]="barChartLegend"
+				[chartType]="barChartType"
+				(chartHover)="chartHovered($event)"
+				(chartClick)="chartClicked($event)"></canvas>
+	  </div>
+    </div> 
+	</ion-card>
+	<br>
+	<ion-card padding>	
+	<div> <h2> <b>Brand-wise Usage </b></h2>
+	  <div style="display: block">
+		<canvas baseChart height="50" width="100"
+				[datasets]="pieChartData"
+				[labels]="pieChartLabels"
+				[options]="pieChartOptions"
+				[legend]="pieChartLegend"
+				[chartType]="pieChartType"
+				(chartHover)="chartHovered($event)"
+				(chartClick)="chartClicked($event)"></canvas>
+	  </div>
+    </div> 
+	</ion-card>
+
+</ion-content>

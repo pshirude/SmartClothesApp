@@ -21,6 +21,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { MyServiceService } from '../services/my-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RestProvider } from '../providers/rest/rest';
+import { ChartsModule  } from 'ng2-charts';
 
 
 @NgModule({
@@ -37,7 +38,7 @@ import { RestProvider } from '../providers/rest/rest';
     NotificationsPage
   ],
   imports: [
-    BrowserModule,HttpClientModule,
+    BrowserModule,HttpClientModule,ChartsModule,
     IonicModule.forRoot(MyApp),
 	NgxQRCodeModule
   ],
@@ -55,7 +56,7 @@ import { RestProvider } from '../providers/rest/rest';
     NotificationsPage
   ],
   providers: [
-    StatusBar,BarcodeScanner,MyServiceService, HttpClientModule,
+    StatusBar,BarcodeScanner,MyServiceService, HttpClientModule,ChartsModule,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RestProvider,
