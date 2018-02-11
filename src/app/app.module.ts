@@ -25,7 +25,7 @@ import { ChartsModule  } from 'ng2-charts';
 
 
 @NgModule({
-  declarations: [
+  declarations: [ 
     MyApp,
     ScanAddPage,
     ApparelsPage,

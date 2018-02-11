@@ -20,4 +20,15 @@
     </ion-card-content>
   </ion-card>
 
+	  
+ <button id="pushDataBtn" ion-button (click)="pushDataToTW()" color="balanced" block style="border-radius:5px 5px 5px 5px;">
+    <ion-icon></ion-icon>Push Data
+  </button>
+  
+    <ion-card>
+    <ion-card-content>
+      Result from TW : {{ qrData }}
+    </ion-card-content>
+  </ion-card>
+  
 </ion-content>

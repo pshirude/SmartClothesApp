@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { RestProvider } from '../../providers/rest/rest';
 
 @Component({
   selector: 'page-scan-add',
@@ -11,7 +12,7 @@ export class ScanAddPage {
   qrData ;
   scannedCode ;
   
-  constructor(private barcodeScanner: BarcodeScanner) {
+  constructor(private barcodeScanner: BarcodeScanner,private restProvider:RestProvider) {
   }
   
   scanCode() {
@@ -21,6 +22,11 @@ export class ScanAddPage {
 	}, (err) => {
 		console.log('Error: ', err);
 	});
+  }
+  
+  pushDataToTW(){ 
+	console.log("calling service getData ")
+	this.restProvider.getData();	
   }
 
 }

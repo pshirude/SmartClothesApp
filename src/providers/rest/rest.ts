@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpParams } from '@angular/common/http';
 
 /*
   Generated class for the RestProvider provider.
@@ -14,10 +15,21 @@ export class RestProvider {
 		console.log('Hello RestProvider Provider');
 	}
 	apiUrl = 'https://jsonplaceholder.typicode.com';
-  
+	
+	serviceURL = 'http://dipatil2l1.ptcnet.ptc.com:8080/Thingworx/Things/RFID/Services/getTagHistory';
+	
+	
+	
+	/* credentials: {
+			"username":'Administrator',
+			"password":'admin'
+	}; */
+	
+	//  let postParams = {some:'some', another:'some'};
+
 	getUsers() {
 		return new Promise(resolve => {
-		this.http.get(this.apiUrl+'/users').subscribe(data => {
+		this.http.post(this.apiUrl+'/users').subscribe(data => {
 		  resolve(data);
 		}, err => {
 		  console.log(err);
@@ -25,6 +37,18 @@ export class RestProvider {
 		});
 	}
 	
+	getData(){
+		console.log("inside service getData");
+		this.http.post(this.serviceURL, {}, {
+			headers: new HttpHeaders().set('appKey','79b87982-0cdb-4d2f-8e0c-08dbee31b247')
+		  })
+          .subscribe(res => {
+            resolve(res);
+          }, (err) => {
+            console.log(err);
+          });
+		console.log("returning from server getData");
+	}
 	
 	addUser(data) {
 	  return new Promise((resolve, reject) => {
