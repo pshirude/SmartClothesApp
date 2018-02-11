@@ -23,7 +23,7 @@
   <ion-list *ngFor="let category of clothCategory" id="apparelsList">
 	<ion-list-header >{{ category }}</ion-list-header>
 	    <ion-item-sliding class="shaded-slider" *ngFor="let cloth of clothesJSON[category]"> 
-			<ion-item>
+			<ion-item> 
 				<ion-thumbnail item-left>
 					<img src="assets/img/{{cloth.image}}"/>
 				</ion-thumbnail>

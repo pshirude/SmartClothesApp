@@ -25,7 +25,7 @@ import { ChartsModule  } from 'ng2-charts';
 
 
 @NgModule({
-  declarations: [ 
+  declarations: [
     MyApp,
     ScanAddPage,
     ApparelsPage,
@@ -56,7 +56,7 @@ import { ChartsModule  } from 'ng2-charts';
     NotificationsPage
   ],
   providers: [
-    StatusBar,BarcodeScanner,MyServiceService, HttpClientModule,ChartsModule,
+    StatusBar,BarcodeScanner,MyServiceService,HttpClientModule,ChartsModule,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RestProvider,

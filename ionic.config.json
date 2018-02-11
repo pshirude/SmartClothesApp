@@ -7,8 +7,8 @@
   },
   "proxies": [
 		{
-			"path": "/api",
-			"proxyUrl": "http://api.steampowered.com"
+			"path": "/Things/RFID/Services/getTagHistory",
+			"proxyUrl": "http://dipatil2l1.ptcnet.ptc.com:8080/Thingworx"
 		}
 	]
 }

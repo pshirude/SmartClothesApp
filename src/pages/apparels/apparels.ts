@@ -13,7 +13,6 @@ export class ApparelsPage implements OnInit {
    users : any;
    favouriteClothes : any[] = [];
   
-   
 	initializeItems() {
 		this.clothesJSON = {
 		"Formal Wear": [{

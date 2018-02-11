@@ -25,8 +25,16 @@ export class ScanAddPage {
   }
   
   pushDataToTW(){ 
-	console.log("calling service getData ")
-	this.restProvider.getData();	
+	console.log("calling service postData ")
+	this.restProvider.postData().then(data => {
+		console.log("data ::::::: "+ data);
+	}, (err) => {
+		console.log('Error: ', err);
+	});
+	
+	/* this works
+	console.log("calling service addUser ")
+	this.restProvider.addUser('abc'); */
   }
 
 }

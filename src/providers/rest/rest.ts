@@ -1,6 +1,6 @@
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { HttpClient,HttpHeaders,HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams } from '@angular/common/http';
+import 'rxjs/add/operator/map';
 
 /*
   Generated class for the RestProvider provider.
@@ -17,9 +17,7 @@ export class RestProvider {
 	apiUrl = 'https://jsonplaceholder.typicode.com';
 	
 	serviceURL = 'http://dipatil2l1.ptcnet.ptc.com:8080/Thingworx/Things/RFID/Services/getTagHistory';
-	
-	
-	
+	serviceURL2 = 'http://dipatil2l1.ptcnet.ptc.com:8080/Thingworx/Things/RFID/Services/getTagHistory?appKey=79b87982-0cdb-4d2f-8e0c-08dbee31b247';
 	/* credentials: {
 			"username":'Administrator',
 			"password":'admin'
@@ -29,36 +27,42 @@ export class RestProvider {
 
 	getUsers() {
 		return new Promise(resolve => {
-		this.http.post(this.apiUrl+'/users').subscribe(data => {
+		this.http.get(this.apiUrl+'/users').subscribe(data => {
 		  resolve(data);
 		}, err => {
-		  console.log(err);
+		  console.log(" err : " + err);
 		});
 		});
 	}
 	
-	getData(){
-		console.log("inside service getData");
-		this.http.post(this.serviceURL, {}, {
-			headers: new HttpHeaders().set('appKey','79b87982-0cdb-4d2f-8e0c-08dbee31b247')
-		  })
-          .subscribe(res => {
-            resolve(res);
-          }, (err) => {
-            console.log(err);
-          });
-		console.log("returning from server getData");
+
+	postData(){ 
+		let header = new HttpHeaders();
+		header = header.set('appKey', '79b87982-0cdb-4d2f-8e0c-08dbee31b247').set('Content-Type','application/json; charset=utf-8').set('Access-Control-Allow-Origin','*');
+		console.log("inside service postData");
+		return new Promise((resolve, reject) => {
+			this.http.post(this.serviceURL,{header : header})
+			  .subscribe(res => {
+				resolve(data);
+				console.log("happpppy : " + JSON.stringify(data));
+			  }, (err) => {
+				reject(" error : " + err);
+			  });
+		});
 	}
 	
+	//dummy POST -working
 	addUser(data) {
-	  return new Promise((resolve, reject) => {
-		this.http.post(this.apiUrl+'/users', JSON.stringify(data))
-		  .subscribe(res => {
-			resolve(res);
-		  }, (err) => {
-			reject(err);
-		  });
-	  });
+		console.log("inside service addUser");
+		return new Promise((resolve, reject) => {
+			this.http.post(this.apiUrl+'/users', JSON.stringify(data))
+			  .subscribe(res => {
+				resolve(res);
+				console.log("happpppy : " + JSON.stringify(res));
+			  }, (err) => {
+				reject(err);
+			  });
+		});
 	}
 
 }
